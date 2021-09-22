@@ -1,0 +1,172 @@
+<div class="card mb-4">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        <i class="fas mr-2" [ngClass]="formData?.formIcon"></i>{{formData?.formTitle}}
+      </div>
+      <div class="col text-right">  
+        <button *ngFor="let b of buttons" (click)="onOptionSelected(b.actionName)" [ngClass]="b.btnClass" [innerHtml]="b.value">
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- USERS REPORT -->
+    <div class="row mb-3">
+      <div class="col-10">
+        <span class="mr-3"><i class="fas fa-stopwatch text-primary mr-1"></i>Invitacion Enviada</span>
+        <span class="mr-3"><i class="fas fa-stopwatch text-warning mr-1"></i>Invitacion Por Vencer</span>
+        <span class="mr-3"><i class="fas fa-stopwatch text-danger mr-1"></i>Invitacion Vencida</span>
+        <span class="mr-3"><i class="fas fa-stopwatch text-secondary mr-1"></i>Invitacion Cancelada</span>
+        <span class="mr-3"><i class="fas fa-stopwatch text-info mr-1"></i>Invitacion Solicitada</span>
+        <span class="mr-3"><i class="fas fa-stopwatch text-success mr-1"></i>Registro Exitoso</span>
+      </div>
+      <div class="col-2 text-right">
+        <button data-toggle="modal" (click)="onNewInvite()" data-target="#mdlInviteUser" class="btn btn-outline-primary btn-sm ml-2 mr-1">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <hr/>
+    <span *ngIf="isLoadingInvitations" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    
+  <table [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" datatable class="row-border hover">
+    <thead>
+      <tr>
+        <th class="invitationStatus">...</th>
+        <th>Usuario (Correo Electronico)</th>
+        <th>Nombre</th>
+        <th>F. Envio</th>
+        <th>Rol / Perfil</th>
+        <th>Reference</th>
+        <th class="actionsColumn">...</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of invitations">
+        <td>
+          <i class="fas fa-stopwatch" [ngClass]="{'text-primary': i.status == 'Created' || i.status == 'Accepted', 
+            'text-secondary': i.status == 'Cancelled', 'text-success': i.status == 'Activated',
+            'text-info': i.status == 'Requested',
+            'text-danger': checkIfDueDate(i.dueDate) && i.status == 'Created' }"></i>
+        </td>
+        <td>{{i.invitedEmail}}</td>
+        <td>{{i.invitedName}}</td>
+        <td>{{i.dateCreated | date}}</td>
+        <td>{{i.role.displayName}}</td>
+        <td>{{i.code}}</td>
+        <td class="actionsColumn">
+          <a *ngIf="i.status == 'Requested' && !checkIfDueDate(i.dueDate)" class="mr-3" [routerLink]="" (click)="onAprove(i)" data-toggle="modal" data-target="#mdlApprove"><i class="fa fa-check text-success" aria-hidden="true"></i></a>
+          <a class="mr-3" *ngIf="i.status != 'Cancelled' && i.status != 'Activated' && !checkIfDueDate(i.dueDate)" [routerLink]="" (click)="onEdit(i)" data-toggle="modal" data-target="#mdlInviteUser" ><i class="fas fa-edit text-primary" aria-hidden="true"></i></a>
+          <a class="mr-3" *ngIf="i.status != 'Cancelled' && i.status != 'Activated' && !checkIfDueDate(i.dueDate)" [routerLink]="" (click)="onCancel(i)" data-toggle="modal" data-target="#mdlCancel"><i class="fa fa-ban text-danger" aria-hidden="true"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+    <!-- END USERS REPORT -->
+  </div>
+  <div class="card-footer small text-muted">
+    {{formData?.footerNotes}}
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="mdlCancel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cancelacion de Invitacion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Esta seguro que desea cancelar esta invitacion?
+      </div>
+      <div class="modal-footer">
+        <button type="button" #closeCancelInvitation class="btn btn-secondary" data-dismiss="modal">Ignorar</button>
+        <button type="button" class="btn btn-danger" (click)="onCancelSubmit()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="mdlApprove" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Aprobacion de Invitacion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Esta seguro que desea aprobar esta invitacion?
+      </div>
+      <div class="modal-footer">
+        <button type="button" #closeApproveInvitation class="btn btn-secondary" data-dismiss="modal">Ignorar</button>
+        <button type="button" class="btn btn-success" (click)="onAproveSubmit()">Aprobar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="mdlInviteUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Invitacion: [ {{currentInvite?.id}} ] </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #frmNewInvite="ngForm" id="frmNewInvite">
+        <div class="modal-body">
+          <!-- input fields -->
+          <div *ngIf="currentInvite">
+              <div class="form-group text-right">
+                <small>{{currentInvite.dateCreated | date}}</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Usuario (Correo Electronico)</label>
+                <input name="email" [disabled]="currentInvite && currentInvite.id > 0" type="email" [(ngModel)]="currentInvite.invitedEmail" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">Se enviara una Invitacion a este correo electronico para el proceso de registro.</small>
+              </div>
+              <div class="form-group">
+                <label for="invitedName">Nombre</label>
+                <input name="invitedName" type="text" [(ngModel)]="currentInvite.invitedName" required class="form-control" id="invitedName" aria-describedby="emailHelp" placeholder="Nombre del Invitado">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Rol / Perfil</label>
+                <select required name="role" [(ngModel)]="selectedRole" class="form-control">
+                  <option *ngFor="let r of userRoles" [ngValue]="r">{{r.displayName}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <small>
+                  http://localhost:4200/home/{{currentInvite.code}}
+                </small>
+              </div>
+          </div>
+          <!-- end input fields -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" #closeNewInvitationModalBtn class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" *ngIf="currentInvite && currentInvite.id < 1" [disabled]="!frmNewInvite.valid" (click)="onCreateInvite()" class="btn btn-primary">Invitar</button>
+          <button type="button" *ngIf="currentInvite && currentInvite.id > 0" [disabled]="!frmNewInvite.valid" (click)="onUpdate()" class="btn btn-primary">Actualizar</button>
+        </div>
+      </form>        
+    </div>
+  </div>
+</div>
