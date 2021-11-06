@@ -16,6 +16,8 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { UsersAdminComponent } from './Forms/Security/usersAdmin/usersAdmin.component';
 import { HeaderFormComponent } from './Forms/headerForm/headerForm.component';
 import { ContainerFormComponent } from './Forms/containerForm/containerForm.component';
+import { EdoCtaComponent } from './Forms/appCliente/edoCta/edoCta.component';
+
 import { AuthGuard } from './_guards/auth.guard';
 import { FileUploadModule } from 'ng2-file-upload';
 
@@ -30,6 +32,7 @@ import { FileUploadModule } from 'ng2-file-upload';
       UsersAdminComponent,
       HeaderFormComponent,
       ContainerFormComponent,
+      EdoCtaComponent,
    ],
    imports: [
       BrowserModule,

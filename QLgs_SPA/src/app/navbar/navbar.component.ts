@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   loggedIn = false;
   companies: any;
   companySelected: any;
-  sidebarVisible = true;
+  sidebarVisible = false; //true;
   notifications: any[];
   currentUser: any;
   currentSection = 'general';
@@ -32,6 +32,10 @@ export class NavbarComponent implements OnInit {
     currentPwd: "",
     newPwd: "",
     confirmPwd: ""
+  }
+  currentExp: any = {
+    frac: "",
+    exp: ""
   }
 
   currentUserSettings: any;
@@ -60,6 +64,19 @@ export class NavbarComponent implements OnInit {
         
         this.notifications.push(msg);
       }
+    });
+
+    this._shareData.currentActionSource.subscribe(action => {
+
+      console.log('action', action);
+
+      if (action && action != null && action.key == "selectedExp") {
+        this.currentExp.frac = action.value.value.frac;
+        this.currentExp.exp = action.value.value.exp;
+      }
+      
+
+      
     });
 
   }

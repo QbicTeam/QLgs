@@ -27,31 +27,33 @@ export class AppComponent implements OnInit {
 
     let sidebarVisible = false;
     let classFound = false;
+    this.document.body.classList.add('sb-sidenav-toggled');
 
-    for(var itm in this.document.body.classList) {
-      if (this.document.body.classList[itm] == 'sb-sidenav-toggled') {
-        classFound = true;
-        break;
-      }
-    }
+    // Comentado para que no aparezca el menu lateral
+    // for(var itm in this.document.body.classList) {
+    //   if (this.document.body.classList[itm] == 'sb-sidenav-toggled') {
+    //     classFound = true;
+    //     break;
+    //   }
+    // }
 
-    if(classFound) {
-      sidebarVisible = false;
-    } else {
-      sidebarVisible = true;
-    }
+    // if(classFound) {
+    //   sidebarVisible = false;
+    // } else {
+    //   sidebarVisible = true;
+    // }
 
-    this._shareData.currentActionSource.subscribe(action => {
+    // this._shareData.currentActionSource.subscribe(action => {
 
-      if (action && action != null && action.key == "sidebarToogle")
-        sidebarVisible = action.value.value;
+    //   if (action && action != null && action.key == "sidebarToogle")
+    //     sidebarVisible = action.value.value;
 
-      if (sidebarVisible) {
-        this.document.body.classList.remove('sb-sidenav-toggled');
-      } else {
-        this.document.body.classList.add('sb-sidenav-toggled');
-      }
-    });
+    //   if (sidebarVisible) {
+    //     this.document.body.classList.remove('sb-sidenav-toggled');
+    //   } else {
+    //     this.document.body.classList.add('sb-sidenav-toggled');
+    //   }
+    // });
 
   }
 

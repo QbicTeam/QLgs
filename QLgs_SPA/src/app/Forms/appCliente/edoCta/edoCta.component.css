@@ -1,0 +1,4 @@
+@media print {
+    table#tblExp tbody tr {display: none;}
+    table#tblExp tbody tr.table-active {display: table-row;}    
+}

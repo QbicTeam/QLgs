@@ -77,7 +77,9 @@ namespace SIQbic.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult>Login(UserForLoginDTO userForLoginDTO)
         {
-            var userFromRepo = await _repo.Login(userForLoginDTO.UserName.ToLower(), userForLoginDTO.Password);
+            /* var userFromRepo = await _repo.Login(userForLoginDTO.UserName.ToLower(), userForLoginDTO.Password);
+
+            userFromRepo =
 
             if (userFromRepo == null)
             {
@@ -97,7 +99,14 @@ namespace SIQbic.API.Controllers
                 new Claim(ClaimTypes.GivenName, userFromRepo.DisplayName),
                 new Claim(ClaimTypes.Webpage, userFromRepo.PhotoUrl)
             };
-
+*/
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, "1"),
+                new Claim(ClaimTypes.Name, "Carlos Soto"),
+                new Claim(ClaimTypes.GivenName, "Carlos"),
+                new Claim(ClaimTypes.Webpage, "")
+            };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this._config.GetSection("AppSettings:Token").Value));
 

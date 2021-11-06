@@ -1,0 +1,207 @@
+
+<div class="login-content  pt-0">
+  <div class="row">
+    <div class="col-xs-12 col-1g-8 col-center">
+        <div class="card card-user m-3">
+          <div class="card-header">
+            <h1 class="text-center mt-4 mb-4">Estado de Cuenta de <br class="d-sm-none d-md-none"/>{{this.currentUser.unique_name}}</h1>
+          </div>
+          <div class="card-body">
+            <table id="tblExp" class="table table-hover">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Exp</th>
+                  <th scope="col">Formacion Contractual</th>
+                  <th scope="col">Fracc.</th>
+                  <th scope="col">Mza.</th>
+                  <th scope="col">lote</th>
+                  <th scope="col">A Pagar</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Fecha Ven.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr [ngClass]="{'table-active': currentExp.exp === '021501'}" (click)="selectExp('021501','Futura Secc Vista Horizonte Lotes')">
+                  <td> <div *ngIf="currentExp.exp == '021501'"> <i class="fas fa-check-circle text-success" ></i></div></td>
+                  <td>021501</td>
+                  <td>Eduardo Blancas Zamorano</td>
+                  <td>Futura Secc Vista Horizonte Lotes</td>
+                  <td>209</td>
+                  <td>002</td>
+                  <td>$92.94</td>
+                  <td>V</td>
+                  <td>Lunes 30 de agosto de 2021</td>
+                </tr>
+                <tr [ngClass]="{'table-active': currentExp.exp == '021201'}" (click)="selectExp('021201','Futura Secc Vista Horizonte Lotes')">
+                  <td><div *ngIf="currentExp.exp == '021201'"> <i class="fas fa-check-circle text-success"></i></div></td>
+                  <td>027201</td>
+                  <td>Eduardo Blancas Zamorano y Juana Ashley Perez Gomez</td>
+                  <td>Futura Secc Vista Horizonte Lotes</td>
+                  <td>217</td>
+                  <td>018</td>
+                  <td>$148.49</td>
+                  <td>V</td>
+                  <td>domingo 15 de agosto de 2021</td>
+                </tr>
+              
+              </tbody>
+            </table>
+
+            <div *ngIf="currentExp">
+              <div class="row">
+                <div class="col-xs-12 col-md-9 col-1g-8 col-center">
+                  <table class="table table-primary">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="text-center">Moneda</th>
+                        <th scope="col" class="text-center">Pago Mensual</th>
+                        <th scope="col" class="text-center">Credito</th>
+                        <th scope="col" class="text-center">Saldo Actual</th>
+                        <th scope="col" class="text-center">Mens. Rem.</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">Dolar</td>
+                        <td class="text-center">{{148.51 | currency}}</td>
+                        <td class="text-center">{{13217.81 | currency}}</td>
+                        <td class="text-center">{{13068.86 | currency}}</td>
+                        <td class="text-center">88</td>        
+                      </tr>     
+                    </tbody>
+                  </table>
+                </div>
+                
+              </div>
+  
+              <div class="row row-cols-1 row-cols-md-3">
+                <div class="col">
+                  <div class="card border-0">
+                    <div class="card-header bg-primary">Avisos</div>
+                    <div class="card-body">
+                      <p>Aproveche nuestra promocion de condonacion de Intereses MMoratorios por lanzamiento de nuestro nuevo servicio de "Pago en Linea" Claro... !!Pangando en Linea!!</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col pb-3">
+                  <div class="card border-0">
+                    <div class="card-header bg-primary">Formas de Pago</div>
+                    <div class="card-body">
+                      <p>*</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col pb-3">
+                  <div class="card border-0">
+                    <div class="card-header bg-primary">Referencia bancaria</div>
+                    <div class="card-body">
+                      <p>720272012</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row row-cols-1 row-cols-lg-2 col-center">
+                <div class="col">
+                  <div class="card border-0">
+                    <div class="card-header bg-success">Ultimo pago Realizado</div>
+                    <div class="card-body p-0">
+                      <table class="table table-hover table-striped">                      
+                        <tbody>
+                          <tr>
+                            <td>Fecha:</td>
+                            <td class="text-right">lunes, 31 de mayo de 2021</td>
+                          </tr>
+                          <tr>
+                            <td>Folio:</td>
+                            <td class="text-right">R 335924</td>
+                          </tr>   
+                          <tr>
+                            <td>Importe</td>
+                            <td class="text-right">{{148.95 | currency}}</td>
+                          </tr>
+                          <tr>
+                            <td>Movimientos Cubiertos:</td>
+                            <td>Mensualidad 001,002</td>
+                          </tr>                   
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card border-0">
+                    <div class="card-header bg-success">Resumen de Adeudo</div>
+                    <div class="card-body p-0">
+                      <table class="table table-hover table-striped pt-0">                      
+                        <tbody>
+                          <tr>
+                            <td>Total moratorios</td>
+                            <td class="text-right">{{0 | currency}}</td>
+                          </tr>
+                          <tr>
+                            <td>Gastos de cobranza</td>
+                            <td class="text-right">{{0 | currency}}</td>                          
+                          </tr>    
+                          <tr>
+                            <td>Mensualidades</td>
+                            <td class="text-right">{{148.49 | currency}}</td>
+                          </tr> 
+                          <tr>
+                            <td>Total</td>
+                            <td class="text-right">{{148.49 | currency}}</td>
+                          </tr>
+                          <tr>
+                            <td>Solo vencido</td>
+                            <td class="text-right">{{148.49 | currency}}</td>
+                          </tr>                 
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- <div class="row row-cols-1 col-center">
+                <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-center">
+                  <div class="card border-0 pt-4">
+                    <div class="card-header bg-info text-center">PAGO A REALIZAR</div>
+                    <div class="card-body">
+                      <table class="table table-hover">                      
+                        <tbody>
+                          <tr [ngClass]="{'table-active': aPagar.tipo === 'Corriente'}" (click)="selectAPagar('Corriente')">
+                            <td><div *ngIf="aPagar.tipo == 'Corriente'"> <i class="fas fa-check-circle text-success"></i></div></td>
+                            <td>Ponerse al Corriente</td>
+                            <td class="text-right">{{148.49 | currency}}</td>                                           
+                          </tr>
+                          <tr [ngClass]="{'table-active': aPagar.tipo === 'Vencida'}" (click)="selectAPagar('Vencida')">
+                            <td><div *ngIf="aPagar.tipo == 'Vencida'"> <i class="fas fa-check-circle text-success"></i></div></td>
+                            <td>Abono a Deuda Vencida</td>
+                            <td class="text-right">{{148.49 | currency}}</td>                                                 
+                          </tr> 
+                          <tr [ngClass]="{'table-active': aPagar.tipo === 'Anticipado'}" (click)="selectAPagar('Anticipado')">
+                            <td><div *ngIf="aPagar.tipo == 'Anticipado'"> <i class="fas fa-check-circle text-success"></i></div></td>
+                            <td>Pago Anticipado</td>                          
+                            <td class="text-right">{{0 | currency}}</td>                          
+                          </tr>                      
+                        </tbody>
+                      </table>
+                      <div class="i-d-flex i-flex-row-reverse">                       
+                        <div class="i-p-2">
+                          <button type="button" class="btn btn-dark">Realizar Pago</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  -->
+            </div>
+
+          </div>
+      </div> 
+    </div>
+  </div>
+</div>
+
+

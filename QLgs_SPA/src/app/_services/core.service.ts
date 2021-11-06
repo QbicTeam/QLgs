@@ -19,7 +19,8 @@ constructor() { }
 
     return [
       { "id": 1, "displayName": "CORE", "displayIcon": "", "url":"", "childs":[
-        { "id": 2, "displayName": "Dashboard", "displayIcon": "fa fa-home", "url":"/home", "childs":[] }
+        { "id": 2, "displayName": "Dashboard", "displayIcon": "fa fa-home", "url":"/home", "childs":[] },
+        { "id": 18, "displayName": "Edo. Cta.", "displayIcon": "fa fa-home", "url":"/appCliente/edoCta", "childs":[] }
       ] },
       { "id": 3, "displayName": "INTERFACE", "displayIcon": "", "url":"", "childs":[
         { "id": 4, "displayName": "Layouts", "displayIcon": "fa fa-columns", "url":"", "childs":[
@@ -49,16 +50,33 @@ constructor() { }
 
   getFormInfoByName(formName: string) {
 
-    return {
-      "formName": "Registro de Nuevos Usuarios",
-      "path": ["SiQbic", "Seguridad", "Nuevos Usuarios"],
-      "notes": "Esta forma solo sirve para hacer la invitacion a nuevos usuarios",
-      "notesType": "alert-info",
-      "formTitle": "Invitacion de nuevos usuarios",
-      "formIcon": "fa fa-user-plus",
-      "footerNotes": "La tasa de usuarios usuarios que responden a la ivitacion por correo es del 80%",
-      "componente":""
+    if(formName == "/form/users") {
+      return {
+        "formName": "Registro de Nuevos Usuarios",
+        "path": ["SiQbic", "Seguridad", "Nuevos Usuarios"],
+        "notes": "Esta forma solo sirve para hacer la invitacion a nuevos usuarios",
+        "notesType": "alert-info",
+        "formTitle": "Invitacion de nuevos usuarios",
+        "formIcon": "fa fa-user-plus",
+        "footerNotes": "La tasa de usuarios usuarios que responden a la ivitacion por correo es del 80%",
+        "componente":""
+      }
     }
+
+    if(formName == "/appCliente/edoCta") {
+      return {
+        "formName": "Estado de Cuenta del Cliente",
+        "path": ["Lagsa", "Estado de Cuenta"],
+        "notes": "Aqui puede consultar el ultimo pago hecho en su(s) terreno(s)/Casa(s) asi como realizar un pago al mismo.",
+        "notesType": "alert-info",
+        "formTitle": "Titulo de la Forma",
+        "formIcon": "fa fa-user-plus",
+        "footerNotes": "Notas del pie de pagina.",
+        "componente":""
+      }
+    }
+
+        
   }
 
 }

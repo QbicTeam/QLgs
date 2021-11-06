@@ -10036,7 +10036,7 @@ body {
 }
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
   content: "";
-  display: block;
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -10047,6 +10047,19 @@ body {
   opacity: 0.5;
   transition: opacity 0.3s ease-in-out;
 }
+/* .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 1037;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+} */
 
 @media (min-width: 992px) {
   #layoutSidenav #layoutSidenav_nav {
@@ -10228,4 +10241,9 @@ body {
 }
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
+}
+
+/* CSS Especial */
+.col-center {
+  margin: 0 auto;
 }

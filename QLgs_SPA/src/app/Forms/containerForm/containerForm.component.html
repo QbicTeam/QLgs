@@ -1,6 +1,7 @@
 <main>
   <div class="container-fluid">
-    <app-headerForm [formData]="currentForm"></app-headerForm>
-    <app-usersAdmin [formData]="currentForm"></app-usersAdmin>
+    <app-headerForm [formData]="currentForm"></app-headerForm> 
+    <app-usersAdmin [formData]="currentForm"*ngIf="pathForm=='/form/users'"></app-usersAdmin>
+    <app-edoCta [formData]="currentForm" *ngIf="pathForm=='/appCliente/edoCta'"></app-edoCta>
   </div>
 </main>

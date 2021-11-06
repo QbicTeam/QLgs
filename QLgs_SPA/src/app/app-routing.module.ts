@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { ContainerFormComponent } from './Forms/containerForm/containerForm.component';
 import { AuthGuard } from './_guards/auth.guard';
 
+import { EdoCtaComponent } from './Forms/appCliente/edoCta/edoCta.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
@@ -11,7 +13,8 @@ const routes: Routes = [
       children: [
         { path: 'home/:rcode', component: HomeComponent },
         { path: 'home', component: HomeComponent },
-        { path: 'form/users', component: ContainerFormComponent, canActivate: [AuthGuard] }
+        { path: 'form/users', component: ContainerFormComponent, canActivate: [AuthGuard] },
+        { path: 'appCliente/edoCta', component: EdoCtaComponent, canActivate: [AuthGuard] }
       ]
   },
   { path: '**', redirectTo: '', pathMatch: 'full'}];
