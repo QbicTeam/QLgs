@@ -1,4 +1,4 @@
-namespace SIQbic.API.Model.Enums
+namespace QLgs.EdoCta.API.Model.Enums
 {
     public enum RegistrationCodeStatusType
     {

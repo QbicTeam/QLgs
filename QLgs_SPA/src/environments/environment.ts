@@ -5,12 +5,7 @@
 export const environment = {
   production: false,
   securitasApiUrl: "http://localhost:5000/Auth/",
-  photosAPIUrl: "http://majahide-001-site1.itempurl.com/releasecandidates/PhotosManagerAPI/", //"http://localhost:5100/"
-  emailsApiUrl: "http://localhost:5001/", //"http://majahide-001-site1.itempurl.com/releasecandidates/EmailsManagerAPI/"
-  emailSupportApiKey: "a0ba6866-4e22-47b5-8891-b13f9811c3c0",
-  profilesPhotosRepoUrl: "http://majahide-001-site1.itempurl.com/releasecandidates/PhotosManagerAPI/prometheusmedia/",
-  profilesPhotosProjectName: "SIQBICPROFILES",
-  profilesPhotosFolderName: "UserProfiles"
+  apiurl: "http://localhost:5001/"
 };
 
 /*
@@ -21,3 +16,14 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+/*
+  production: false,
+  securitasApiUrl: "http://localhost:5000/Auth/",
+  photosAPIUrl: "http://majahide-001-site1.itempurl.com/releasecandidates/PhotosManagerAPI/", //"http://localhost:5100/"
+  emailsApiUrl: "http://localhost:5001/", //"http://majahide-001-site1.itempurl.com/releasecandidates/EmailsManagerAPI/"
+  emailSupportApiKey: "a0ba6866-4e22-47b5-8891-b13f9811c3c0",
+  profilesPhotosRepoUrl: "http://majahide-001-site1.itempurl.com/releasecandidates/PhotosManagerAPI/prometheusmedia/",
+  profilesPhotosProjectName: "QLgs.EdoCtaPROFILES",
+  profilesPhotosFolderName: "UserProfiles"
+*/

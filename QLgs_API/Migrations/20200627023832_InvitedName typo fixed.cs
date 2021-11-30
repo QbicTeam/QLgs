@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SIQbic.API.Migrations
+namespace QLgs.EdoCta.API.Migrations
 {
     public partial class InvitedNametypofixed : Migration
     {

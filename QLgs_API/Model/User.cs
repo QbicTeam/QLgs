@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SIQbic.API.Model
+namespace QLgs.EdoCta.API.Model
 {
     public class User
     {

@@ -1,7 +1,7 @@
 using System;
-using SIQbic.API.Model;
+using QLgs.EdoCta.API.Model;
 
-namespace SIQbic.API.Dtos
+namespace QLgs.EdoCta.API.Dtos
 {
     public class RegistrationCodeForReport
     {

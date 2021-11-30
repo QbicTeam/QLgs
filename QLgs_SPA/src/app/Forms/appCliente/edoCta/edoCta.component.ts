@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from 'src/app/securitas/_services/auth.service';
+import { CoreService } from 'src/app/_services/core.service';
 import { Subject } from 'rxjs';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ShareDataService } from 'src/app/_services/ShareData.service';
@@ -19,15 +20,24 @@ export class EdoCtaComponent implements OnDestroy, OnInit {
   @ViewChild('closeCancelInvitation') closeBtnCancel: ElementRef;
   @ViewChild('closeApproveInvitation') closeBtnApprove: ElementRef;
   
-  constructor(private _authService: AuthService, private _alertify: AlertifyService, private _shareData: ShareDataService) { }
+  constructor(private _authService: AuthService,private _coreService: CoreService, private _alertify: AlertifyService, private _shareData: ShareDataService) { }
 
   currentUser: any;
   currentExp: any;
   aPagar: any;
 
+  exps: any;
+
   ngOnInit() {
     this.currentUser = this._authService.getDecodedToken();
     console.log("currentUser ", this.currentUser);
+
+    this._coreService.getDataCliente(this.currentUser.NameIdentifier).subscribe(data => {
+      console.log('Exps', data);
+      this.exps = data;
+    });
+
+
     
   }
 
@@ -36,10 +46,12 @@ export class EdoCtaComponent implements OnDestroy, OnInit {
     this.dtTrigger.unsubscribe();
   }
 
-  selectExp(exp,frac) {
-    this.currentExp = {exp};
-    console.log('Exp', this.currentExp, 'frac', frac);
-    this._shareData.notifyActionSource(new QuickAction("selectedExp", { value: {frac,exp}}));
+  selectExp(exp) {
+    this.currentExp = exp;
+    let expe = exp.Exp;
+    let nomFrac = exp.NomFrac;
+    console.log('Exp', this.currentExp.Exp, 'frac', this.currentExp.NomFrac);
+    this._shareData.notifyActionSource(new QuickAction("selectedExp", { value: {nomFrac,expe}}));
   }
 
   selectAPagar(tipo) {

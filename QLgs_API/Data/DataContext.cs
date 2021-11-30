@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using SIQbic.API.Model;
+using QLgs.EdoCta.API.Model;
 
-namespace SIQbic.API.Data
+namespace QLgs.EdoCta.API.Data
 {
     public class DataContext: DbContext
     {

@@ -13,7 +13,7 @@ import { UserForLogin } from '../Dtos/UserForLogin';
 export class AuthService {
 
   baseUrl = environment.securitasApiUrl;
-  baseEmailsUrl = environment.emailsApiUrl;
+  //baseEmailsUrl = environment.emailsApiUrl;
 
   jwtHelper = new JwtHelperService();
   decodedToken: any;
@@ -97,23 +97,23 @@ export class AuthService {
     return this._http.post(this.baseUrl + "invites", invitation);
   }
 
-  sendInvitationEmail(email: any) {
-    return this._http.post(this.baseEmailsUrl + "emails", email, this.getHeader());
-  }
+  // sendInvitationEmail(email: any) {
+  //   return this._http.post(this.baseEmailsUrl + "emails", email, this.getHeader());
+  // }
 
   private notifyAction(action: string) {
     this.actionSource.next(action);
   }
 
-  private getHeader() {
+  // private getHeader() {
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        "x-api-key": environment.emailSupportApiKey
-      })
-    };
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       "x-api-key": environment.emailSupportApiKey
+  //     })
+  //   };
 
-    return httpOptions;
-  }
+  //   return httpOptions;
+  // }
 
 }

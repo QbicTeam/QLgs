@@ -159,7 +159,7 @@ export class UsersAdminComponent implements OnDestroy, OnInit {
     const emailData = {
       "To": targetEmail,
       "Body": "",
-      "Subject": "Invitation para registro a SiQbic",
+      "Subject": "Invitation para registro a QLgs.EdoCta",
       "IsHtml": true,
       "TemplateId": 3,
       "Values": [

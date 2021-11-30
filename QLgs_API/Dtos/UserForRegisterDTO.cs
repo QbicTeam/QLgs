@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace SIQbic.API.Dtos
+namespace QLgs.EdoCta.API.Dtos
 {
     public class UserForRegisterDTO
     {

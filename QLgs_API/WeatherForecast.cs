@@ -1,6 +1,6 @@
 using System;
 
-namespace SIQbic.API
+namespace QLgs.EdoCta.API
 {
     public class WeatherForecast
     {

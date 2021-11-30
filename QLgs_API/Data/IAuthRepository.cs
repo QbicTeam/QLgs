@@ -1,34 +1,35 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SIQbic.API.Model;
+using QLgs.EdoCta.API.Model;
 
-namespace SIQbic.API.Data
+namespace QLgs.EdoCta.API.Data
 {
     public interface IAuthRepository
     {
-        Task<User> Register(User user, string password);
+        //Task<User> Register(User user, string password);
 
-        Task<User> Login(string username, string password);
+        //Task<User> Login(string username, string password);
+        Task<UserLgs> LoginLgs(string username, string password);
 
-        Task<bool> UserExists(string username);
+        //Task<bool> UserExists(string username);
 
-        Task<bool> ChangePassword(string username, string password, string newPassword);        
+        //Task<bool> ChangePassword(string username, string password, string newPassword);        
 
-        Task<List<Question>> GetQuestions();
+        //Task<List<Question>> GetQuestions();
 
-        Task<User> GetUserById(int userId);
+        //Task<User> GetUserById(int userId);
 
-        Task<string> RequestInvitation(string invetedEmail, string sponsorEmail, int roleId, string invitedName);
+        //Task<string> RequestInvitation(string invetedEmail, string sponsorEmail, int roleId, string invitedName);
 
-        Task<string> CreateInvitation(RegistrationCode code);
+        //Task<string> CreateInvitation(RegistrationCode code);
 
-        Task<List<RegistrationCode>> GetInvitations();
+        //Task<List<RegistrationCode>> GetInvitations();
 
-        Task<RegistrationCode> GetInvitationById(int id);
+        //Task<RegistrationCode> GetInvitationById(int id);
 
-        Task<bool> UpdateRegisterCodeRecord(string regCode, string status, int userId);
+        //Task<bool> UpdateRegisterCodeRecord(string regCode, string status, int userId);
 
-        Task<bool> SaveAll();
+        //Task<bool> SaveAll();
     }
 }

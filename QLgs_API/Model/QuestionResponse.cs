@@ -1,4 +1,4 @@
-namespace SIQbic.API.Model
+namespace QLgs.EdoCta.API.Model
 {
     public class QuestionResponse
     {

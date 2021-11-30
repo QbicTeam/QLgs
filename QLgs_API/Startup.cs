@@ -15,9 +15,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using SIQbic.API.Data;
+using QLgs.EdoCta.API.Data;
 
-namespace SIQbic.API
+namespace QLgs.EdoCta.API
 {
     public class Startup
     {
@@ -35,8 +35,9 @@ namespace SIQbic.API
             // services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))
             //     .ConfigureWarnings(w => w.Ignore(CoreEventId.IncludeIgnoredWarning)));
 
-            services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
-                .ConfigureWarnings(warnings => warnings.Ignore(CoreEventId.IncludeIgnoredWarning)));
+            // No se usa EF
+            //services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            //    .ConfigureWarnings(warnings => warnings.Ignore(CoreEventId.IncludeIgnoredWarning)));
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -44,6 +45,7 @@ namespace SIQbic.API
             //services.AddAutoMapper();
             
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IEdoCtaRepository, EdoCtaRepository>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {

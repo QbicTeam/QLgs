@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SIQbic.API.Data;
+using QLgs.EdoCta.API.Data;
 
-namespace SIQbic.API.Migrations
+namespace QLgs.EdoCta.API.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20200627023832_InvitedName typo fixed")]
@@ -21,7 +21,7 @@ namespace SIQbic.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SIQbic.API.Model.Question", b =>
+            modelBuilder.Entity("QLgs.EdoCta.API.Model.Question", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace SIQbic.API.Migrations
                     b.ToTable("Questions");
                 });
 
-            modelBuilder.Entity("SIQbic.API.Model.QuestionResponse", b =>
+            modelBuilder.Entity("QLgs.EdoCta.API.Model.QuestionResponse", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +61,7 @@ namespace SIQbic.API.Migrations
                     b.ToTable("QuestionResponse");
                 });
 
-            modelBuilder.Entity("SIQbic.API.Model.RegistrationCode", b =>
+            modelBuilder.Entity("QLgs.EdoCta.API.Model.RegistrationCode", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -102,7 +102,7 @@ namespace SIQbic.API.Migrations
                     b.ToTable("Invitations");
                 });
 
-            modelBuilder.Entity("SIQbic.API.Model.User", b =>
+            modelBuilder.Entity("QLgs.EdoCta.API.Model.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -144,20 +144,20 @@ namespace SIQbic.API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("SIQbic.API.Model.QuestionResponse", b =>
+            modelBuilder.Entity("QLgs.EdoCta.API.Model.QuestionResponse", b =>
                 {
-                    b.HasOne("SIQbic.API.Model.Question", "Question")
+                    b.HasOne("QLgs.EdoCta.API.Model.Question", "Question")
                         .WithMany()
                         .HasForeignKey("QuestionId");
 
-                    b.HasOne("SIQbic.API.Model.User", null)
+                    b.HasOne("QLgs.EdoCta.API.Model.User", null)
                         .WithMany("QuestionResponses")
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("SIQbic.API.Model.RegistrationCode", b =>
+            modelBuilder.Entity("QLgs.EdoCta.API.Model.RegistrationCode", b =>
                 {
-                    b.HasOne("SIQbic.API.Model.User", null)
+                    b.HasOne("QLgs.EdoCta.API.Model.User", null)
                         .WithMany("RegistrationCodes")
                         .HasForeignKey("UserId");
                 });

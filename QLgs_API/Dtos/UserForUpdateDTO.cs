@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace SIQbic.API.Dtos
+namespace QLgs.EdoCta.API.Dtos
 {
     public class UserForUpdateDTO
     {

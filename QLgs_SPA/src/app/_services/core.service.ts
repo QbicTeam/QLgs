@@ -1,11 +1,63 @@
+
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+// DTOs usados como parametros
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoreService {
+  baseUrl = environment.apiurl;
 
-constructor() { }
+constructor(private http: HttpClient) { }
+
+  getDataCliente(codCliente: string) {
+    const url = this.baseUrl + 'edoCta/' + codCliente;
+
+    return this.http.get(url);
+  }
+
+ /*  Ejemplo de Post 
+  addAuthorizedCapacity(startDate, endDate, percentage, people) {
+
+    const url = this.baseUrl + 'capacity/autorizedCapacities';
+
+    const requestData = {
+      startDate,
+      endDate,
+      capacity: people,
+      percentageCapacity: percentage
+    };
+
+    return this.http.post(url, requestData);
+
+  }
+*/
+
+/* Ejemplo de Put
+updateMemberData(memberData: any) {
+
+  const url = this.baseUrl + 'members/' + memberData.userId;
+
+  return this.http.put(url, memberData);
+
+}
+*/
+
+/* Ejemplo de Delete
+deleteMemberDate(userId: any, date: any, hour: any) {
+
+  const url = this.baseUrl + 'members/' + userId + '/schedule/' + date + '/' + hour;
+
+  console.log(url);
+
+  return this.http.delete(url);
+
+}
+*/
 
   getCompanyList() {
     return [
@@ -32,7 +84,7 @@ constructor() { }
           { "id": 9, "displayName": "Error", "displayIcon": "", "url":"/home", "childs":[] }
         ] }
       ] },
-      { "id": 13, "displayName": "SiQbic", "displayIcon": "", "url":"", "childs":[
+      { "id": 13, "displayName": "QLgs.EdoCta", "displayIcon": "", "url":"", "childs":[
         { "id": 14, "displayName": "Seguridad", "displayIcon": "fa fa-columns", "url":"", "childs":[
           { "id": 15, "displayName": "Nuevos Usuarios", "displayIcon": "", "url":"/form/users", "childs":[] },
           { "id": 16, "displayName": "Asignacion de Persmisos", "displayIcon": "", "url":"/home", "childs":[] }
@@ -53,7 +105,7 @@ constructor() { }
     if(formName == "/form/users") {
       return {
         "formName": "Registro de Nuevos Usuarios",
-        "path": ["SiQbic", "Seguridad", "Nuevos Usuarios"],
+        "path": ["QLgs.EdoCta", "Seguridad", "Nuevos Usuarios"],
         "notes": "Esta forma solo sirve para hacer la invitacion a nuevos usuarios",
         "notesType": "alert-info",
         "formTitle": "Invitacion de nuevos usuarios",

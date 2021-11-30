@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SIQbic.API.Dtos
+namespace QLgs.EdoCta.API.Dtos
 {
     public class QuestionForRegisterDTO
     {

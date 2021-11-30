@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace SIQbic.API
+namespace QLgs.EdoCta.API
 {
     public class Program
     {

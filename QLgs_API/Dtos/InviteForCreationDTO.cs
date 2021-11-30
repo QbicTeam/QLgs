@@ -1,4 +1,4 @@
-namespace SIQbic.API.Dtos
+namespace QLgs.EdoCta.API.Dtos
 {
     public class InviteForCreationDTO
     {

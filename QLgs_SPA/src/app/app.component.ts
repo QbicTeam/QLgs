@@ -11,7 +11,7 @@ import { AlertifyService } from './_services/alertify.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'SIQbic-SPA';
+  title = 'QLgs.EdoCta-SPA';
   private _hubConnection: signalR.HubConnection;
 
   constructor(private _shareData: ShareDataService, @Inject(DOCUMENT) private document: Document, 
