@@ -39,6 +39,7 @@ namespace QLgs.EdoCta.API.Data
                     exp.CodCli = data["CodCli"].ToString();
                     exp.CodFrac = data["CodFrac"].ToString();
                     exp.NomFrac = data["NomFrac"].ToString();
+                    exp.Exp = data["Exp"].ToString();
                     exp.Mza = data["Mza"].ToString();
                     exp.Lote = data["Lote"].ToString();
                     exp.FormCont = data["FormCont"].ToString();
@@ -55,7 +56,7 @@ namespace QLgs.EdoCta.API.Data
                     exp.MovUltPag = data["MovUltPag"].ToString();
                     exp.EdoCtaDt = data["EdoCtaDt"].ToString();
                     exp.EdoCtaR = data["EdoCtaR"].ToString();
-                    exp.AvisoExp = data["AvisoExp"].ToString();
+                    exp.AvisoExp = data["AvisosExp"].ToString();
                     exp.SigMen = data["SigMen"].ToString();
                     exp.FechaVen = Convert.ToDateTime(data["FechaVen"].ToString());
                     exp.SdoSigMen = Convert.ToDecimal(data["SdoSigMen"].ToString());

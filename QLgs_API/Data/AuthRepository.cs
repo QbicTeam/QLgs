@@ -31,12 +31,15 @@ namespace QLgs.EdoCta.API.Data
 
             if (data.HasRows)
             {
-                while (data.Read())
+                while (await data.ReadAsync()) //while (data.Read())
                 {
                     cliente.CodCli = data["CodCli"].ToString();
                     cliente.UserName = data["NomCli"].ToString();
                 }
             }
+
+            data.Close();
+            
 
             if (string.IsNullOrEmpty(cliente.CodCli))
             {
