@@ -10247,3 +10247,18 @@ body {
 .col-center {
   margin: 0 auto;
 }
+
+/* Quitar despues de EdoCta */
+#layoutSidenav #layoutSidenav_nav {
+  flex-basis: 225px;
+  flex-shrink: 0;
+  transition: transform 0.15s ease-in-out;
+  z-index: 1038;
+  transform: translateX(-225px);
+  display: none;
+}
+
+.sb-nav-fixed #layoutSidenav #layoutSidenav_content {
+  padding-left: 2px; /*225px;*/
+  top: 56px;
+}

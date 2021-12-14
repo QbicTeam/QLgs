@@ -29,10 +29,18 @@ export class EdoCtaComponent implements OnDestroy, OnInit {
   exps: any;
 
   ngOnInit() {
+    this.currentExp = {exp:""}
     this.currentUser = this._authService.getDecodedToken();
     console.log("currentUser ", this.currentUser);
+    let codCli = ""; 
+    if ( this.currentUser.NameIdentifier != undefined ) {
+      codCli = this.currentUser.NameIdentifier;
+    }  else {
+      codCli = this.currentUser.nameid;
+    }
+    console.log("Cliente ", codCli);
 
-    this._coreService.getDataCliente(this.currentUser.NameIdentifier).subscribe(data => {
+    this._coreService.getDataCliente(codCli).subscribe(data => {
       console.log('Exps', data);
       this.exps = data;
     });
@@ -48,9 +56,9 @@ export class EdoCtaComponent implements OnDestroy, OnInit {
 
   selectExp(exp) {
     this.currentExp = exp;
-    let expe = exp.Exp;
-    let nomFrac = exp.NomFrac;
-    console.log('Exp', this.currentExp.Exp, 'frac', this.currentExp.NomFrac);
+    let expe = exp.exp;
+    let nomFrac = exp.nomFrac;
+    console.log('Exp', this.currentExp.exp, 'frac', this.currentExp.nomFrac);
     this._shareData.notifyActionSource(new QuickAction("selectedExp", { value: {nomFrac,expe}}));
   }
 

@@ -48,6 +48,7 @@ namespace QLgs.EdoCta.API.Data
                     exp.Men = Convert.ToDecimal(data["Men"].ToString());
                     exp.SaldoFin = Convert.ToDecimal(data["SaldoFin"].ToString());
                     exp.SaldoRem = Convert.ToDecimal(data["SaldoRem"].ToString());
+                    exp.MensRem = Convert.ToInt32(data["MensRem"]);
                     exp.FechaCorte = Convert.ToDateTime(data["FechaCorte"].ToString());
                     exp.CtaDep = data["CtaDep"].ToString();
                     exp.RefBco = data["RefBco"].ToString();

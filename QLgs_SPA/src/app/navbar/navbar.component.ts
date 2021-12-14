@@ -71,8 +71,8 @@ export class NavbarComponent implements OnInit {
       console.log('action', action);
 
       if (action && action != null && action.key == "selectedExp") {
-        this.currentExp.frac = action.value.value.frac;
-        this.currentExp.exp = action.value.value.exp;
+        this.currentExp.frac = action.value.value.nomFrac;
+        this.currentExp.exp = action.value.value.expe;
       }
       
 

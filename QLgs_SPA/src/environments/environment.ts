@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  securitasApiUrl: "http://localhost:44398/Auth/",
-  apiurl: "http://localhost:44398/EdoCuenta/"
+  production: false, 
+  securitasApiUrl: "http://localhost:56702/Auth/", 
+  apiurl: "http://localhost:56702/EdoCuenta/"
 };
 
 /*
@@ -27,4 +27,6 @@ export const environment = {
   profilesPhotosProjectName: "QLgs.EdoCtaPROFILES",
   profilesPhotosFolderName: "UserProfiles"
   apiurl: "http://localhost:5001/
+  securitasApiUrl: "http://localhost:44398/Auth/", 
+  apiurl: "http://localhost:44398/EdoCuenta/"
 */

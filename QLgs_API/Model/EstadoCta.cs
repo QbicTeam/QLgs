@@ -18,6 +18,7 @@ namespace QLgs.EdoCta.API.Model
         public decimal Men { get; set; }
         public decimal SaldoFin { get; set; }
         public decimal SaldoRem { get; set; }
+        public int MensRem { get; set; }
         public DateTime FechaCorte { get; set; }
         public string CtaDep { get; set; }
         public string RefBco { get; set; }
