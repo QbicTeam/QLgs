@@ -59,9 +59,9 @@ export class AppComponent implements OnInit {
 
   //TODO: Remove hardcoded Url
   private buildConnection() {
-    this._hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl("http://majahide-001-site1.itempurl.com/releasecandidates/sites/livenotifications/liveNotificationsHub")
-      .build();
+    // this._hubConnection = new signalR.HubConnectionBuilder()
+    //   .withUrl("http://majahide-001-site1.itempurl.com/releasecandidates/sites/livenotifications/liveNotificationsHub")
+    //   .build();
   }
 
   private startConnection() {

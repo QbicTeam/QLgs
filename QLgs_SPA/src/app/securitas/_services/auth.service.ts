@@ -32,7 +32,7 @@ export class AuthService {
   }
 
   login(user: UserForLogin) {
-    return this._http.post(this.baseUrl + "login", user)
+    return this._http.post(this.baseUrl + "login", user, this.getHeader())
       .pipe(
         map((response: any) => {
           const user = response;
@@ -115,5 +115,16 @@ export class AuthService {
 
   //   return httpOptions;
   // }
+
+   private getHeader() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        "Accept": "*/*"
+      })
+    };
+
+    return httpOptions;
+  }
 
 }

@@ -167,13 +167,13 @@ export class UsersAdminComponent implements OnDestroy, OnInit {
       ]
     };
 
-
+/*
     this._authService.sendInvitationEmail(emailData).subscribe(data => {
       this._alertify.success("User invited was notified!");
     }, err => {
       this._alertify.error(err);
     });
-
+*/
     // "To":"majahide.payan@hotmail.com",
     // "Body": "",
     // "Subject": "Test email with dinamyc html",

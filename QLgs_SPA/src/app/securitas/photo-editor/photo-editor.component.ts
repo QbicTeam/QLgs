@@ -17,20 +17,20 @@ export class PhotoEditorComponent implements OnInit {
   uploader:FileUploader;
   hasBaseDropZoneOver:boolean = false;
   hasAnotherDropZoneOver:boolean = false;
-  baseUrl = environment.photosAPIUrl + "photos/" + environment.profilesPhotosProjectName + "/" + environment.profilesPhotosFolderName + "/photos/";
+ // baseUrl = environment.photosAPIUrl + "photos/" + environment.profilesPhotosProjectName + "/" + environment.profilesPhotosFolderName + "/photos/";
 
   
   constructor() { 
   }
 
   ngOnInit() {
-    this.initializeUploader();
+    //this.initializeUploader();
   }
 
   public fileOverBase(e:any):void {
     this.hasBaseDropZoneOver = e;
   }
-  
+/*
   initializeUploader() {
     this.uploader = new FileUploader({
       url: this.baseUrl, 
@@ -56,7 +56,7 @@ export class PhotoEditorComponent implements OnInit {
     this.onSuccessPhotoUploaded.emit(environment.profilesPhotosRepoUrl +  environment.profilesPhotosProjectName 
         + "/" + environment.profilesPhotosFolderName + "/" + data.url);
   }
-
+*/
   onUpload() {
     if (this.uploader.queue.length > 0) {
       this.uploader.uploadAll();

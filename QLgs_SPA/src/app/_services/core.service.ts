@@ -15,7 +15,7 @@ export class CoreService {
 constructor(private http: HttpClient) { }
 
   getDataCliente(codCliente: string) {
-    const url = this.baseUrl + 'edoCta/' + codCliente;
+    const url = this.baseUrl + codCliente;
 
     return this.http.get(url);
   }

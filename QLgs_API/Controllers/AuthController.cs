@@ -45,7 +45,7 @@ namespace QLgs.EdoCta.API.Controllers
             //    userFromRepo.PhotoUrl = "http://majahide-001-site1.itempurl.com/releasecandidates/PhotosManagerAPI/prometheusmedia/QLgs.EdoCtaPROFILES/UserProfiles/nopic.jpg";
             //}
 
-            userFromRepo.UserName = userFromRepo.UserName.Split(" y ")[0];
+            //userFromRepo.UserName = userFromRepo.UserName.Split(" y ")[0]; // Usarlo si mandan la Formacion Contractual.
 
             var claims = new[]
             {

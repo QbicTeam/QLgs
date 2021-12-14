@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  securitasApiUrl: "http://localhost:5000/Auth/",
-  apiurl: "http://localhost:5001/"
+  securitasApiUrl: "http://localhost:44398/Auth/",
+  apiurl: "http://localhost:44398/EdoCuenta/"
 };
 
 /*
@@ -26,4 +26,5 @@ export const environment = {
   profilesPhotosRepoUrl: "http://majahide-001-site1.itempurl.com/releasecandidates/PhotosManagerAPI/prometheusmedia/",
   profilesPhotosProjectName: "QLgs.EdoCtaPROFILES",
   profilesPhotosFolderName: "UserProfiles"
+  apiurl: "http://localhost:5001/
 */

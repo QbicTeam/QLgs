@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this._authService.currentAction.subscribe(action => {
+      debugger;
       this.loggedIn = this._authService.loggedIn();
     });
 

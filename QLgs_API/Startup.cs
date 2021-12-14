@@ -73,7 +73,7 @@ namespace QLgs.EdoCta.API
 
             //app.UseHttpsRedirection();
 
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()); // .WithOrigins("https://localhost:4200")
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseRouting();
