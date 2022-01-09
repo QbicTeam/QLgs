@@ -17,3 +17,23 @@
     border: 1px solid #FFFFFF;
     position: relative;
 }
+
+.DivLogo {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: white;
+    z-index: 2039;
+    height: 30px;
+}
+.DivLogo img {
+    margin: 0px auto;
+	height: 36px;
+    z-index: 2040;
+}
+nav	.fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
+top: 30px !important;
+}
+
+nav { top: 30px !important; }
+    

@@ -7,8 +7,8 @@
             <h1 class="text-center mt-4 mb-4">Estado de Cuenta de <br class="d-sm-none d-md-none"/>{{this.currentUser.unique_name}}</h1>
           </div>
           <div class="card-body" *ngIf="exps != undefined" >
-            <table id="tblExp" class="table table-hover">
-              <thead class="table-dark">
+            <table id="tblExp" class="table table-hover divicionCol">
+              <thead class="borde25 colorPrimario">
                 <tr>
                   <th scope="col"></th>
                   <th scope="col">Exp</th>
@@ -39,7 +39,7 @@
             <div *ngIf="currentExp.exp">
               <div class="row">
                 <div class="col-xs-12 col-md-9 col-1g-8 col-center">
-                  <table class="table table-primary">
+                  <table class="table colorSecundario resumenRem">
                     <thead>
                       <tr>
                         <th scope="col" class="text-center">Moneda</th>
@@ -66,7 +66,7 @@
               <div class="row row-cols-1 row-cols-md-3">
                 <div class="col">
                   <div class="card border-0">
-                    <div class="card-header bg-primary">Avisos</div>
+                    <div class="card-header borde25 colorTerciario text-center">Avisos</div>
                     <div class="card-body">
                       <p>{{currentExp.avisoExp}}</p>
                     </div>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="col pb-3">
                   <div class="card border-0">
-                    <div class="card-header bg-primary">Formas de Pago</div>
+                    <div class="card-header borde25 colorTerciario text-center">Formas de Pago</div>
                     <div class="card-body">
                       <p>{{currentExp.ctaDep}}</p>
                     </div>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="col pb-3">
                   <div class="card border-0">
-                    <div class="card-header bg-primary">Referencia bancaria</div>
+                    <div class="card-header borde25 colorTerciario text-center">Referencia bancaria</div>
                     <div class="card-body">
                       <p>{{currentExp.refBco}}</p>
                     </div>
@@ -92,8 +92,8 @@
 
               <div class="row row-cols-1 row-cols-lg-2 col-center">
                 <div class="col">
-                  <div class="card border-0">
-                    <div class="card-header bg-success">Ultimo pago Realizado</div>
+                  <div class="card borde0">
+                    <div class="card-header borde0 colorSecundario text-center">Ultimo pago Realizado</div>
                     <div class="card-body p-0">
                       <table class="table table-hover table-striped">                      
                         <tbody>
@@ -119,8 +119,8 @@
                   </div>
                 </div>
                 <div class="col">
-                  <div class="card border-0">
-                    <div class="card-header bg-success">Resumen de Adeudo</div>
+                  <div class="card borde0">
+                    <div class="card-header borde0 colorSecundario text-center">Resumen de Adeudo</div>
                     <div class="card-body p-0">
                       <table class="table table-hover table-striped pt-0">                      
                         <tbody>

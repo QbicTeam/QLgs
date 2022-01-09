@@ -1,5 +1,8 @@
+<div *ngIf="loggedIn" class="row DivLogo"><img src="{{companySelected.logo}}" alt="logo"/></div>
 <nav *ngIf="loggedIn" class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <img class="logo-company ml-2" src="{{companySelected.logo}}" alt="logo"/>
+  
+    <!-- <img class="logo-company ml-2" src="{{companySelected.logo}}" alt="logo"/> -->
+    
     <!-- <span class="navbar-brand">
         <select [(ngModel)]="companySelected" (change)="onCompanyChange()" class="form-control">
             <option *ngFor="let c of companies" [ngValue]="c">{{c.displayName}}</option>

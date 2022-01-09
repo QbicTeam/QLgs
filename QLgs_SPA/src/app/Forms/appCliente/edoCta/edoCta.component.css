@@ -1,4 +1,45 @@
+.borde25 { border-radius: 10px; }
+.borde0 { border-radius: 0px !important; }
+
+.colorPrimario { 
+    background-color: rgb(104,153,79); 
+    color: rgb(255,255,204);
+}
+.colorSecundario { 
+    background-color: rgb(106,179,219); 
+    color: rgb(255,255,204);
+}
+.colorTerciario { 
+    background-color: rgb(190,155,4); 
+    color: rgb(255,255,204);
+}
+
+table thead.borde25 th:first-child{
+  border-radius:10px 0 0 10px;
+}
+
+table thead.borde25 th:last-child{
+  border-radius:0 10px 10px 0;
+}
+
+table.divicionCol { border: none; border-collapse: collapse; }
+table.divicionCol th { border-left: 2px solid #FFF; }
+table.divicionCol th:first-child { border-left: none; border-right: none;}
+table.divicionCol th:nth-child(2) { border-left: none; }
+
+table.resumenRem { 
+    border: none; border-collapse: collapse;  overflow: hidden; 
+    margin-bottom: 25px; 
+    border-radius:0 0 10px 10px  !important;
+}
+table.resumenRem th:first-child{ border-bottom: 2px solid #FFF; }
+table.resumenRem tr, table.resumenRem td:first-child{ border-radius:0 0 0 10px !important; }
+table.resumenRem tr, table.resumenRem td:last-child{ border-radius:0 0 10px 0  !important; }
+table.resumenRem td{ font-size: 2em; font-weight: bold}
+
+
 @media print {
     table#tblExp tbody tr {display: none;}
     table#tblExp tbody tr.table-active {display: table-row;}    
 }
+
