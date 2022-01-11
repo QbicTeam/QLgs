@@ -1,0 +1,43 @@
+.loginLgs {
+    background-color: rgb(129,183,98);
+    border-color: white;
+    color: white;
+    border-width: 5px;
+    border-radius: 0;
+
+}
+
+.loginLgs > div {
+    font-size: 2em; font-weight: bold;
+    margin-bottom: 25px;
+    line-height: 1.0;
+}
+
+.loginLgs label {
+    background-color: rgb(131,130,130);
+    width: 150px;
+    /* margin: 0 25% auto; */
+    margin-bottom: 0;
+    border-radius: 15px 15px 0 0;
+    font-weight: bold;
+}
+
+.loginLgs form div input {    
+    border-radius: 25px;
+    color: black !important;
+    background-color: white !important;
+
+}
+
+.colorPrimario { 
+    background-color: rgb(104,153,79); 
+    color: rgb(255,255,204);
+}
+.colorSecundario { 
+    background-color: rgb(106,179,219); 
+    color: rgb(255,255,204);
+}
+.colorTerciario { 
+    background-color: rgb(190,155,4); 
+    color: rgb(255,255,204);
+}
