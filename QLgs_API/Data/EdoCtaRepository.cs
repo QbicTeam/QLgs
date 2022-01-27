@@ -82,6 +82,7 @@ namespace QLgs.EdoCta.API.Data
                     idx = exp.MovUltPag.IndexOf("Folio");
                     exp.Folio = exp.MovUltPag.Substring(idx + 6);
                     exp.MovUltPag = exp.MovUltPag.Substring(0,idx-1);
+                    exp.FormaDePago = data["FormaDePago"].ToString();
 
                     exps.Add(exp);
                 }

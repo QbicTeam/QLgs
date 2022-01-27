@@ -13,6 +13,7 @@ const routes: Routes = [
       children: [
         { path: 'home/:rcode', component: HomeComponent },
         { path: 'home', component: HomeComponent },
+        { path: 'index', component: HomeComponent },
         { path: 'form/users', component: ContainerFormComponent, canActivate: [AuthGuard] },
         { path: 'appCliente/edoCta', component: EdoCtaComponent, canActivate: [AuthGuard] }
       ]

@@ -5,6 +5,10 @@ import { Subject } from 'rxjs';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ShareDataService } from 'src/app/_services/ShareData.service';
 import { QuickAction } from 'src/app/_model/QuickAction';
+
+import { Router } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
+
 @Component({
   selector: 'app-edoCta',
   templateUrl: './edoCta.component.html',
@@ -20,7 +24,7 @@ export class EdoCtaComponent implements OnDestroy, OnInit {
   @ViewChild('closeCancelInvitation') closeBtnCancel: ElementRef;
   @ViewChild('closeApproveInvitation') closeBtnApprove: ElementRef;
   
-  constructor(private _authService: AuthService,private _coreService: CoreService, private _alertify: AlertifyService, private _shareData: ShareDataService) { }
+  constructor(private _authService: AuthService,private _coreService: CoreService, private _alertify: AlertifyService, private _shareData: ShareDataService, private scroller: ViewportScroller, private router: Router) { }
 
   currentUser: any;
   currentExp: any;
@@ -60,10 +64,15 @@ export class EdoCtaComponent implements OnDestroy, OnInit {
     let nomFrac = exp.nomFrac;
     console.log('Exp', this.currentExp.exp, 'frac', this.currentExp.nomFrac);
     this._shareData.notifyActionSource(new QuickAction("selectedExp", { value: {nomFrac,expe}}));
+    setTimeout(() => {this.scroller.scrollToAnchor("Resumen");},1000);
+
+    
   }
 
   selectAPagar(tipo) {
     this.aPagar = {tipo};
     console.log('Forma de Pago', this.aPagar);
   }
+
+  
 }

@@ -1,45 +1,171 @@
-.borde25 { border-radius: 10px; }
-.borde0 { border-radius: 0px !important; }
-
-.colorPrimario { 
-    background-color: rgb(104,153,79); 
-    color: rgb(255,255,204);
-}
-.colorSecundario { 
-    background-color: rgb(106,179,219); 
-    color: rgb(255,255,204);
-}
-.colorTerciario { 
-    background-color: rgb(190,155,4); 
-    color: rgb(255,255,204);
+.borde25 {
+    border-radius: 10px;
 }
 
-table thead.borde25 th:first-child{
-  border-radius:10px 0 0 10px;
+.borde0 {
+    border-radius: 0px !important;
 }
 
-table thead.borde25 th:last-child{
-  border-radius:0 10px 10px 0;
+.colorPrimario {
+    background-color: rgb(104, 153, 79);
+    color: rgb(255, 255, 204);
 }
 
-table.divicionCol { border: none; border-collapse: collapse; }
-table.divicionCol th { border-left: 2px solid #FFF; }
-table.divicionCol th:first-child { border-left: none; border-right: none;}
-table.divicionCol th:nth-child(2) { border-left: none; }
-
-table.resumenRem { 
-    border: none; border-collapse: collapse;  overflow: hidden; 
-    margin-bottom: 25px; 
-    border-radius:0 0 10px 10px  !important;
+.colorSecundario {
+    background-color: rgb(106, 179, 219);
+    color: rgb(255, 255, 204);
 }
-table.resumenRem th:first-child{ border-bottom: 2px solid #FFF; }
-table.resumenRem tr, table.resumenRem td:first-child{ border-radius:0 0 0 10px !important; }
-table.resumenRem tr, table.resumenRem td:last-child{ border-radius:0 0 10px 0  !important; }
-table.resumenRem td{ font-size: 2em; font-weight: bold}
 
+.colorTerciario {
+    background-color: rgb(190, 155, 4);
+    color: rgb(255, 255, 204);
+}
+
+table thead.borde25 th:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+table thead.borde25 th:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+table.divicionCol {
+    border: none;
+    border-collapse: collapse;
+}
+
+table.divicionCol th {
+    border-left: 2px solid #FFF;
+}
+
+table.divicionCol th:first-child {
+    border-left: none;
+    border-right: none;
+}
+
+table.divicionCol th:nth-child(2) {
+    border-left: none;
+}
+
+table.resumenRem {
+    border: none;
+    border-collapse: collapse;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border-radius: 0 0 10px 10px !important;
+}
+
+table.resumenRem th:first-child {
+    border-bottom: 2px solid #FFF;
+}
+
+table.resumenRem tr,
+table.resumenRem td:first-child {
+    border-radius: 0 0 0 10px !important;
+}
+
+table.resumenRem tr,
+table.resumenRem td:last-child {
+    border-radius: 0 0 10px 0 !important;
+}
+
+table.resumenRem td {
+    font-size: 2em;
+    font-weight: bold
+}
 
 @media print {
-    table#tblExp tbody tr {display: none;}
-    table#tblExp tbody tr.table-active {display: table-row;}    
+    table#tblExp tbody tr {
+        display: none;
+    }
+    table#tblExp tbody tr.table-active {
+        display: table-row;
+    }
+    table#tblExp thead th {
+        color: black;
+    }
+    table.resumenRem tr {
+        color: black;
+    }
 }
 
+.tablSaldo {
+    background: none;
+    width: 90vw !important;
+}
+
+.tablUltimoPago {
+    background: none;
+}
+
+.detailTitleRow {
+    position: absolute;
+    left: 0px;
+    padding: 3px;
+}
+
+.edoCta-background {
+    background-image: url('../../../../assets/img/edoCtaBACK.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    /*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+    .tablSaldo td:nth-of-type(1):before {
+        content: "";
+    }
+    .tablSaldo td:nth-of-type(2):before {
+        content: "Exp";
+    }
+    .tablSaldo td:nth-of-type(3):before {
+        content: "Formacion Contractual";
+    }
+    .tablSaldo td:nth-of-type(4):before {
+        content: "Fracc.";
+    }
+    .tablSaldo td:nth-of-type(5):before {
+        content: "Mza.";
+    }
+    .tablSaldo td:nth-of-type(6):before {
+        content: "lote";
+    }
+    .tablSaldo td:nth-of-type(7):before {
+        content: "A Pagar";
+    }
+    .tablSaldo td:nth-of-type(8):before {
+        content: "Status";
+    }
+    .tablSaldo td:nth-of-type(9):before {
+        content: "Fecha Ven.";
+    }
+    /*Resumen*/
+    .resumenRem td:nth-of-type(1):before {
+        content: "Moneda";
+        font-size: 0.8em;
+    }
+    .resumenRem td:nth-of-type(2):before {
+        content: "Pago Mensual";
+        font-size: 0.8em;
+    }
+    .resumenRem td:nth-of-type(3):before {
+        content: "Credito";
+        font-size: 0.8em;
+    }
+    .resumenRem td:nth-of-type(4):before {
+        content: "Saldo Actual";
+        font-size: 0.8em;
+    }
+    .resumenRem td:nth-of-type(5):before {
+        content: "Mens. Rem.";
+        font-size: 0.8em;
+    }
+    .resumenRem tr {
+        background-color: rgb(106, 179, 219);
+    }
+}

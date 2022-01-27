@@ -138,7 +138,7 @@ export class NavbarComponent implements OnInit {
   logout() {
     this._authService.logout();
     this._alertify.message("Logged out");    
-    this._router.navigate(['/home']);
+    this._router.navigate(['/index']); //       /home
     this._shareData.notifyActionSource(new QuickAction("sidebarToogle", { value: false}));
   }
 

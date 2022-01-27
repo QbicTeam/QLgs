@@ -1,11 +1,10 @@
 .logo-company {
- height: 36px;   
+    height: 36px;
 }
 
 .navbar-brand {
     width: 190px;
 }
-
 
 .card-img-top {
     height: 120px;
@@ -18,7 +17,7 @@
     position: relative;
 }
 
-/* .DivLogo {
+.DivLogo {
     position: fixed;
     top: 0px;
     width: 100%;
@@ -26,14 +25,19 @@
     z-index: 2039;
     height: 30px;
 }
+
 .DivLogo img {
     margin: 0px auto;
-	height: 36px;
+    height: 50px;
     z-index: 2040;
 }
-nav	.fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
-top: 30px !important;
+
+nav .fixed-top,
+.sb-nav-fixed #layoutSidenav #layoutSidenav_nav,
+.sb-nav-fixed .sb-topnav {
+    top: 30px !important;
 }
 
-nav { top: 30px !important; }
-     */
+nav {
+    top: 30px !important;
+}

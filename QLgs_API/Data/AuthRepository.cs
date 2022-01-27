@@ -19,13 +19,17 @@ namespace QLgs.EdoCta.API.Data
             var cliente = new UserLgs();
             var ado = new SQLAccess();
             var parms = ado.IniListParameter();
-            
-       
-            var codCli = "0000000000" + username;
+
+
+            //var codCli = "0000000000" + username;
+            var codCli = "0000000000" + password; // Ahora es el CodCli
             codCli = codCli.Substring(codCli.Length - 10, 10);
 
-            parms.Add(ado.GetParameter("CodCli", codCli));
-            parms.Add(ado.GetParameter("PWD", password));
+            // parms.Add(ado.GetParameter("CodCli", codCli));
+            // parms.Add(ado.GetParameter("PWD", password));
+
+            parms.Add(ado.GetParameter("User", username));
+            parms.Add(ado.GetParameter("PWD", codCli));
 
             var data = await ado.GetDataReader("LoginEdoCtaWeb", parms);
 

@@ -43,6 +43,7 @@ namespace QLgs.EdoCta.API.Model
         public decimal Mensualidades { get; set; }
         public decimal GastoCobranza { get; set; }
         public decimal TotalMoratorios { get; set; }
+        public string FormaDePago { get; set; }
 
 
     }

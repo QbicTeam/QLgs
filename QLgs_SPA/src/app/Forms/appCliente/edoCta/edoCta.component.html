@@ -1,158 +1,164 @@
-
 <div class="login-content  pt-0">
-  <div class="row">
-    <div class="col-xs-12 col-1g-8 col-center">
-        <div class="card card-user m-3">
-          <div class="card-header">
-            <h1 class="text-center mt-4 mb-4">Estado de Cuenta de {{this.currentUser.unique_name}}</h1>
-            <!-- <br class="d-sm-none d-md-none"/> -->
-          </div>
-          <div class="card-body" *ngIf="exps != undefined" >
-            <table id="tblExp" class="table table-hover divicionCol">
-              <thead class="borde25 colorPrimario">
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Exp</th>
-                  <th scope="col">Formacion Contractual</th>
-                  <th scope="col">Fracc.</th>
-                  <th scope="col">Mza.</th>
-                  <th scope="col">lote</th>
-                  <th scope="col">A Pagar</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Fecha Ven.</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let expe of exps"  [ngClass]="{'table-active': currentExp.exp === expe.exp}" (click)="selectExp(expe)">
-                  <td> <div *ngIf="currentExp.exp == expe.exp"> <i class="fas fa-check-circle text-success" ></i></div></td>
-                  <td>{{expe.exp}}</td>
-                  <td>{{expe.formCont}}</td>
-                  <td>{{expe.nomFrac}}</td>
-                  <td>{{expe.mza}}</td>
-                  <td>{{expe.lote}}</td>
-                  <td>{{expe.totalAPagar | currency}}</td>
-                  <td>{{expe.sttExp}}</td>
-                  <td>{{expe.fechaVen | date: 'dd/MMM/yyyy'}}</td>
-                </tr>              
-              </tbody>
-            </table>
+    <div class="row">
+        <div class="col-xs-12 col-1g-8 col-center">
+            <div class="card card-user m-3">
+                <div class="card-header ">
+                    <h1 class="text-center mt-4 mb-4">Estado de Cuenta de <br/> {{this.currentUser.unique_name}}</h1>
+                    <!-- <br class="d-sm-none d-md-none"/> -->
+                </div>
+                <div class="card-body table-responsive" *ngIf="exps != undefined">
+                    <table id="tblExp" class="table table-hover divicionCol tablSaldo">
+                        <thead class="borde25 colorPrimario">
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Exp</th>
+                                <th scope="col">Formacion Contractual</th>
+                                <th scope="col">Fracc.</th>
+                                <th scope="col">Mza.</th>
+                                <th scope="col">lote</th>
+                                <th scope="col">A Pagar</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Fecha Ven.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let expe of exps" [ngClass]="{'table-active': currentExp.exp === expe.exp}" (click)="selectExp(expe)">
+                                <td>
+                                    <div *ngIf="currentExp.exp == expe.exp"> <i class="fas fa-check-circle text-success"></i></div>
+                                </td>
+                                <td>{{expe.exp}}</td>
+                                <td>{{expe.formCont}}</td>
+                                <td>{{expe.nomFrac}}</td>
+                                <td>{{expe.mza}}</td>
+                                <td>{{expe.lote}}</td>
+                                <td>{{expe.totalAPagar | currency}}</td>
+                                <td>{{expe.sttExp}}</td>
+                                <td>{{expe.fechaVen | date: 'dd/MMM/yyyy'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-            <div *ngIf="currentExp.exp">
-              <div class="row">
-                <div class="col-xs-12 col-md-9 col-1g-8 col-center">
-                  <table class="table colorSecundario resumenRem">
-                    <thead>
-                      <tr>
-                        <th scope="col" class="text-center">Moneda</th>
-                        <th scope="col" class="text-center">Pago Mensual</th>
-                        <th scope="col" class="text-center">Credito</th>
-                        <th scope="col" class="text-center">Saldo Actual</th>
-                        <th scope="col" class="text-center">Mens. Rem.</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="text-center">{{currentExp.moneda}}</td>
-                        <td class="text-center">{{currentExp.men | currency}}</td>
-                        <td class="text-center">{{currentExp.saldoFin | currency}}</td>
-                        <td class="text-center">{{currentExp.saldoRem | currency}}</td>
-                        <td class="text-center">{{currentExp.mensRem}}</td>        
-                      </tr>     
-                    </tbody>
-                  </table>
-                </div>
-                
-              </div>
-  
-              <div class="row row-cols-1 row-cols-md-3">
-                <div class="col">
-                  <div class="card border-0">
-                    <div class="card-header borde25 colorTerciario text-center">Avisos</div>
-                    <div class="card-body">
-                      <p>{{currentExp.avisoExp}}</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col pb-3">
+                    <div *ngIf="currentExp.exp">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-9 col-1g-8 col-center">
+                                <table class="table colorSecundario resumenRem" id="Resumen" name="Resumen">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="text-center">Moneda</th>
+                                            <th scope="col" class="text-center">Pago Mensual</th>
+                                            <th scope="col" class="text-center">Credito</th>
+                                            <th scope="col" class="text-center">Saldo Actual</th>
+                                            <th scope="col" class="text-center">Mens. Rem.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">{{currentExp.moneda}}</td>
+                                            <td class="text-center">{{currentExp.men | currency}}</td>
+                                            <td class="text-center">{{currentExp.saldoFin | currency}}</td>
+                                            <td class="text-center">{{currentExp.saldoRem | currency}}</td>
+                                            <td class="text-center">{{currentExp.mensRem}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <div class="col">
+                                <div class="card border-0">
+                                    <div class="card-header borde25 colorTerciario text-center" id="Avisos" name="Avisos">Avisos</div>
+                                    <div class="card-body">
+                                        <p>{{currentExp.avisoExp}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col pb-3">
                   <div class="card border-0">
                     <div class="card-header borde25 colorTerciario text-center">Formas de Pago</div>
                     <div class="card-body">
-                      <p>{{currentExp.ctaDep}}</p>
+                      <p>{{currentExp.formaDePago}}</p>  
+                      Antes tenia ctaDep
                     </div>
                   </div>
-                </div>
-                <div class="col pb-3">
-                  <div class="card border-0">
-                    <div class="card-header borde25 colorTerciario text-center">Referencia bancaria</div>
-                    <div class="card-body">
-                      <p>{{currentExp.refBco}}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                </div> -->
+                            <div class="col pb-3">
+                                <div class="card border-0">
+                                    <div class="card-header borde25 colorTerciario text-center">Referencia bancaria</div>
+                                    <div class="card-body">
+                                        <p>{{currentExp.refBco}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-              <div class="row row-cols-1 row-cols-lg-2 col-center">
-                <div class="col">
-                  <div class="card borde0">
-                    <div class="card-header borde0 colorSecundario text-center">Ultimo pago Realizado</div>
-                    <div class="card-body p-0">
-                      <table class="table table-hover table-striped">                      
-                        <tbody>
-                          <tr>
-                            <td>Fecha:</td>
-                            <td class="text-right">{{currentExp.fechaUltPag | date: 'dd/MMM/yyyy'}}</td>
-                          </tr>
-                          <tr>
-                            <td>Folio:</td>
-                            <td class="text-right">{{currentExp.folio}}</td>
-                          </tr>   
-                          <tr>
-                            <td>Importe</td>
-                            <td class="text-right">{{currentExp.impUltPag | currency}}</td>
-                          </tr>
-                          <tr>
-                            <td>Movimientos Cubiertos:</td>
-                            <td>{{currentExp.movUltPag}}</td>
-                          </tr>                   
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card borde0">
-                    <div class="card-header borde0 colorSecundario text-center">Resumen de Adeudo</div>
-                    <div class="card-body p-0">
-                      <table class="table table-hover table-striped pt-0">                      
-                        <tbody>
-                          <tr>
-                            <td>Total moratorios</td>
-                            <td class="text-right">{{currentExp.totalMoratorios | currency}}</td>
-                          </tr>
-                          <tr>
-                            <td>Gastos de cobranza</td>
-                            <td class="text-right">{{currentExp.gastosCobranza | currency}}</td>                          
-                          </tr>    
-                          <tr>
-                            <td>Mensualidades</td>
-                            <td class="text-right">{{currentExp.mensualidades | currency}}</td>
-                          </tr> 
-                          <tr>
-                            <td>Total</td>
-                            <td class="text-right">{{currentExp.totalAPagar | currency}}</td>
-                          </tr>
-                          <tr>
-                            <td>Solo vencido</td>
-                            <td class="text-right">{{currentExp.soloVencido | currency}}</td>
-                          </tr>                 
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-  
-              <!-- <div class="row row-cols-1 col-center">
+                        <div class="row row-cols-1 row-cols-lg-2 col-center">
+                            <div class="col">
+                                <div class="card borde0">
+                                    <div class="card-header borde0 colorSecundario text-center">Ultimo pago Realizado</div>
+                                    <div class="card-body p-0">
+                                        <table class="table table-hover table-striped tablUltimoPago">
+                                            <tbody>
+                                                <tr class="text-right">
+                                                    <td><span class="detailTitleRow">Fecha:</span> <span>{{currentExp.fechaUltPag | date: 'dd/MMM/yyyy'}}</span></td>
+                                                </tr>
+                                                <tr class="text-right">
+                                                    <td><span class="detailTitleRow">Folio:</span> <span>{{currentExp.folio}}</span></td>
+                                                </tr>
+                                                <tr class="text-right">
+                                                    <td><span class="detailTitleRow">Importe</span> <span>{{currentExp.impUltPag | currency}}</span> </td>
+                                                </tr>
+                                                <tr class="text-right">
+                                                    <td><span class="detailTitleRow">Movimientos Cubiertos:</span><span>{{currentExp.movUltPag}}</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card borde0">
+                                    <div class="card-header borde0 colorSecundario text-center">Resumen de Adeudo</div>
+                                    <div class="card-body p-0">
+                                        <table role="tablist" class="table table-hover table-striped pt-0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-right"><span class="detailTitleRow">Total moratorios</span>{{currentExp.totalMoratorios | currency}}</td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td class="text-right"><span class="detailTitleRow">Gastos de cobranza</span>{{currentExp.gastosCobranza | currency}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right"><span class="detailTitleRow">Mensualidades</span>{{currentExp.mensualidades | currency}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right"><span class="detailTitleRow">Total</span>{{currentExp.totalAPagar | currency}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right"><span class="detailTitleRow">Solo vencido</span>{{currentExp.soloVencido | currency}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row row-cols-1 mt-3">
+                            <div class="col pb-3">
+                                <div class="card border-0">
+                                    <div class="card-header borde25 colorTerciario text-center">Formas de Pago</div>
+                                    <div class="card-body">
+                                        <p>{{currentExp.formaDePago}}</p>
+                                        <!-- ctaDep -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="row row-cols-1 col-center">
                 <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-center">
                   <div class="card border-0 pt-4">
                     <div class="card-header bg-info text-center">PAGO A REALIZAR</div>
@@ -185,12 +191,10 @@
                   </div>
                 </div>
               </div>  -->
+                    </div>
+
+                </div>
             </div>
-
-          </div>
-      </div> 
+        </div>
     </div>
-  </div>
 </div>
-
-

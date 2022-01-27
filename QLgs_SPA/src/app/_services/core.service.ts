@@ -61,9 +61,10 @@ deleteMemberDate(userId: any, date: any, hour: any) {
 
   getCompanyList() {
     return [
-      { "id": 1, "displayName": "Qbic", "logo": "../../assets/img/LogoQbic.jpg"},
-      { "id": 2, "displayName": "Pizza Hut", "logo": "../../assets/img/phlogo1.png"},
-      { "id": 3, "displayName": "Starbuks", "logo": "../../assets/img/sblogo2.png"}
+      { "id": 1, "displayName": "Lagsa", "logo": "../../assets/img/logoLagsa.png"},
+      { "id": 2, "displayName": "Qbic", "logo": "../../assets/img/LogoQbic.jpg"},
+      { "id": 3, "displayName": "Pizza Hut", "logo": "../../assets/img/phlogo1.png"},
+      { "id": 4, "displayName": "Starbuks", "logo": "../../assets/img/sblogo2.png"}
     ]
   }
 
